@@ -1,5 +1,6 @@
 package com.chatassistant.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,6 +53,8 @@ public class ChatService {
 	public Message createMessage(MessageCreationRequest message) {
 		Message messageToCreate = new Message();
 		BeanUtils.copyProperties(message, messageToCreate);
+		Instant instant = Instant.now();
+		messageToCreate.setTimeStamp(instant.toString());
 		return messageRepository.save(messageToCreate);
 	}
 
