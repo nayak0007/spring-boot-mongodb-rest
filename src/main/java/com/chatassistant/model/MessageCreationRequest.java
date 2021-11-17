@@ -32,4 +32,11 @@ public class MessageCreationRequest {
 	private String timestamp;
 	private String userName;
 	private String userImage;
+	private String roomId;
+	public String getRoomId() {
+		return roomId;
+	}
+	public void setRoomId(String roomId) {
+		this.roomId = roomId;
+	}
 }
