@@ -42,4 +42,11 @@ public class Message {
     private String userName;
     private String userImage;
     private String timeStamp;
+    private String roomId;
+	public String getRoomId() {
+		return roomId;
+	}
+	public void setRoomId(String roomId) {
+		this.roomId = roomId;
+	}
 }

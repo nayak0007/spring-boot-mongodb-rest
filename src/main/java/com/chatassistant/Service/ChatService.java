@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.chatassistant.exception.EntityNotFoundException;
+import com.chatassistant.model.Message;
+import com.chatassistant.model.MessageCreationRequest;
 import com.chatassistant.model.Room;
 import com.chatassistant.model.RoomCreationRequest;
 import com.chatassistant.repository.MessageRepository;
@@ -40,8 +42,17 @@ public class ChatService {
 	public Room createRoom(RoomCreationRequest room) {
 		Room roomToCreate = new Room();
 		BeanUtils.copyProperties(room, roomToCreate);
-		System.out.println("RoomName>>"+roomToCreate.getName());
 		return roomRepository.save(roomToCreate);
+	}
+	
+	public List<Message> getMessages(String roomId) {
+		return messageRepository.findAll(roomId);
+	}
+	
+	public Message createMessage(MessageCreationRequest message) {
+		Message messageToCreate = new Message();
+		BeanUtils.copyProperties(message, messageToCreate);
+		return messageRepository.save(messageToCreate);
 	}
 
 }
