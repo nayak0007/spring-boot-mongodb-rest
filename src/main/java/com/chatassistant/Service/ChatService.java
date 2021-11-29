@@ -11,9 +11,11 @@ import org.springframework.stereotype.Service;
 import com.chatassistant.exception.EntityNotFoundException;
 import com.chatassistant.model.Message;
 import com.chatassistant.model.MessageCreationRequest;
+import com.chatassistant.model.Product;
 import com.chatassistant.model.Room;
 import com.chatassistant.model.RoomCreationRequest;
 import com.chatassistant.repository.MessageRepository;
+import com.chatassistant.repository.ProductRepository;
 import com.chatassistant.repository.RoomRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -27,9 +29,16 @@ public class ChatService {
 	
 	@Autowired
 	private MessageRepository messageRepository;
+	
+	@Autowired
+	private ProductRepository productRepository;
 
 	public List<Room> getAllRoom() {
 		return roomRepository.findAll();
+	}
+	
+	public List<Product> getAllProduct() {
+		return productRepository.findAll();
 	}
 
 	public Room getRoom(String id) {
