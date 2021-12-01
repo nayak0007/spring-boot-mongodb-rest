@@ -37,10 +37,6 @@ public class SlackController {
 		return ResponseEntity.ok(chatService.getAllRoom());
 	}
 	
-	@GetMapping("/products")
-	public ResponseEntity getAllProduct() {
-		return ResponseEntity.ok(chatService.getAllProduct());
-	}
 
 	@GetMapping(value = "/messages/{id}")
 	public ResponseEntity getMessages(@PathVariable("id") String id) {
