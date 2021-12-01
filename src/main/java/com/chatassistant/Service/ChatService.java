@@ -30,16 +30,11 @@ public class ChatService {
 	@Autowired
 	private MessageRepository messageRepository;
 	
-	@Autowired
-	private ProductRepository productRepository;
 
 	public List<Room> getAllRoom() {
 		return roomRepository.findAll();
 	}
-	
-	public List<Product> getAllProduct() {
-		return productRepository.findAll();
-	}
+
 
 	public Room getRoom(String id) {
 		Optional<Room> book = roomRepository.findById(id);
